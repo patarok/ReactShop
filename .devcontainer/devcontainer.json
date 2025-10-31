@@ -1,0 +1,65 @@
+{
+  "name": "ReactShop Codespace",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "."
+  },
+  "remoteUser": "vscode",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "lts"
+    }
+  },
+  "containerEnv": {
+    "DOTNET_ENVIRONMENT": "Development",
+    "ASPNETCORE_ENVIRONMENT": "Development",
+    "ASPNETCORE_URLS": "http://0.0.0.0:0",
+    "ASPIRE_ALLOW_UNSECURE_TRANSPORT": "true",
+    "ASPIRE_DASHBOARD_ENABLED": "true"
+  },
+  "runArgs": [
+    "--init",
+    "--privileged"
+  ],
+  "mounts": [
+    "source=dind-var-lib-docker,target=/var/lib/docker,type=volume"
+  ],
+  "forwardPorts": [
+    18888,
+    5173
+  ],
+  "portsAttributes": {
+    "18888": {
+      "label": "Aspire Dashboard",
+      "onAutoForward": "openBrowser"
+    },
+    "5173": {
+      "label": "Vite Dev Server",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-dotnettools.csharp",
+        "ms-azuretools.vscode-docker",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
+      ],
+      "settings": {
+        "dotnet.server.useOmnisharp": false,
+        "dotnet.defaultSolution": "ReactShop.sln",
+        "debug.internalConsoleOptions": "neverOpen"
+      }
+    }
+  },
+  "postCreateCommand": "bash -lc 'dotnet --info && dotnet restore ReactShop.sln && if [ -d reactshop.client ]; then cd reactshop.client && ( [ -f pnpm-lock.yaml ] && pnpm i || ([ -f package-lock.json ] && npm ci || ([ -f yarn.lock ] && yarn install || npm i) ) ); fi'",
+  "hostRequirements": {
+    "cpus": 4,
+    "memory": "8gb"
+  }
+}
