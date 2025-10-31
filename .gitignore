@@ -1,0 +1,162 @@
+# =============================
+# OS-specific
+# =============================
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# macOS (harmless on Windows repos)
+.DS_Store
+.AppleDouble
+.apdisk
+
+# =============================
+# .NET / Visual Studio / MSBuild
+# =============================
+.vs/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+TestResults/
+[Aa]rtifacts/
+
+# User- and IDE-specific
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+*.rsuser
+
+# Build / intermediate
+*.cache
+*.tlog
+*.tmp
+*.iobj
+*.ipdb
+*.pdb
+*.mdb
+*.pch
+*.obj
+*.ilk
+*.log
+*.wrn
+*.err
+
+# Publish profiles and user secrets
+**/Properties/PublishProfiles/*.pubxml.user
+**/Properties/PublishProfiles/*.azurePubxml
+# Keep *.pubxml (project-level) if you use it; user files may contain secrets
+
+# NuGet
+*.nupkg
+*.snupkg
+# Old-style packages folder (rare with PackageReference)
+packages/
+# Do NOT ignore NuGet.config or Directory.Packages.props if you use them
+
+# Entity Framework (keep migrations committed)
+# No EF-specific ignores; migrations should be tracked
+
+# ASP.NET Core
+# If using LibMan, ignore restored libraries; keep libman.json tracked
+wwwroot/lib/
+# Optional: ignore dev-only SSL certs if present
+*.pfx
+*.p12
+
+# Local DBs
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# =============================
+# JetBrains Rider / ReSharper
+# =============================
+.idea/
+*.sln.iml
+_ReSharper*/
+*.[Rr]e[Ss]harper*/
+*.DotSettings.user
+
+# =============================
+# Node.js / React (Vite, CRA, etc.)
+# =============================
+node_modules/
+dist/
+build/
+.tmp/
+.temp/
+.cache/
+.parcel-cache/
+
+# Vite
+.vite/
+node_modules/.vite/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Package managers
+.pnpm-store/
+.pnp.*
+.yarn/*
+!.yarn/patches/
+!.yarn/plugins/
+!.yarn/releases/
+!.yarn/sdks/
+!.yarn/versions/
+
+# Lint/TS caches
+.eslintcache
+.stylelintcache
+*.tsbuildinfo
+
+# Testing/coverage
+coverage/
+
+# Next.js / Other frameworks (safe even if unused)
+.next/
+.svelte-kit/
+.nuxt/
+
+# =============================
+# Editors / Tooling
+# =============================
+# Keep .vscode tracked for Codespaces (extensions/settings). Ignore only local history/temp.
+.vscode/.history/
+.history/
+
+# JetBrains Fleet (if used)
+.fleet/
+
+# =============================
+# Env & local overrides
+# =============================
+.env
+.env.local
+.env.*.local
+# Keep shared examples tracked
+!.env.example
+
+# =============================
+# Misc
+# =============================
+*.orig
+*.rej
+*.bak
+*.swp
+*.swo
+*.tmp
+*.trace
+*.dmp
+
+# If you produce client bundles into ASP.NET wwwroot, you can ignore them here:
+# wwwroot/dist/
