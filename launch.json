@@ -1,0 +1,53 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch ReactShop AppHost (Aspire)",
+      "type": "coreclr",
+      "request": "launch",
+      "program": "dotnet",
+      "args": [
+        "run",
+        "--project",
+        "${workspaceFolder}/ReactShop.AppHost/ReactShop.AppHost.csproj"
+      ],
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "DOTNET_ENVIRONMENT": "Development",
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_URLS": "http://0.0.0.0:0",
+        "ASPIRE_ALLOW_UNSECURE_TRANSPORT": "true",
+        "ASPIRE_DASHBOARD_ENABLED": "true"
+      },
+      "justMyCode": true,
+      "stopAtEntry": false,
+      "console": "integratedTerminal",
+      "timeoutInSeconds": 180
+    },
+    {
+      "name": "Attach to .NET process (pick)",
+      "type": "coreclr",
+      "request": "attach",
+      "processId": "${command:pickProcess}"
+    },
+    {
+      "name": "Open Aspire Dashboard (browser)",
+      "type": "pwa-chrome",
+      "request": "launch",
+      "url": "http://localhost:18888/",
+      "webRoot": "${workspaceFolder}",
+      "presentation": {
+        "hidden": true
+      }
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Run AppHost + Dashboard",
+      "configurations": [
+        "Launch ReactShop AppHost (Aspire)",
+        "Open Aspire Dashboard (browser)"
+      ]
+    }
+  ]
+}
